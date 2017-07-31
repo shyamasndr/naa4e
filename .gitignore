@@ -43,3 +43,12 @@ IBuyStuff-dm/src/Site/IBuyStuff.Application/bin/Release/
 IBuyStuff-dm/src/Infrastructure/IBuyStuff.Persistence/bin/Release/
 IBuyStuff-dm/src/Domain/IBuyStuff.Domain/obj/Release/
 IBuyStuff-dm/src/Infrastructure/IBuyStuff.Infrastructure/obj/Release/
+/Merp/src/Merp.Accountancy.CommandStack/obj/Release
+/Merp/src/Merp.Accountancy.QueryStack/obj/Release
+/Merp/src/Merp.Infrastructure/obj/Release
+/Merp/src/Merp.Registry.CommandStack/obj/Release
+/Merp/src/Merp.Registry.QueryStack/obj/Release
+/Merp/src/Merp.Web.UI/obj/Release
+/Merp/test/Merp.Accountancy.CommandStack.Tests/obj/Release
+/Merp/test/Merp.Infrastructure.Tests/obj/Release
+/Merp/test/Merp.Web.UI.Tests/obj/Release
