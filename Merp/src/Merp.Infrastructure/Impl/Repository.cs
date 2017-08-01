@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Merp.Infrastructure.Impl
 {
-    public class InMemoryRepository : IRepository 
+    public class Repository : IRepository 
     {
         private Dictionary<Guid, IAggregate> aggregates = new Dictionary<Guid, IAggregate>();
         public IBus Bus { get; private set; }
 
-        public InMemoryRepository(IBus bus)
+        public Repository(IBus bus)
         {
             if(bus==null)
             {

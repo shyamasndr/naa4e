@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Merp.Infrastructure.Impl
 {
-    public class InMemoryBus : IBus
+    public class Bus : IBus
     {
         public IUnityContainer Container {get; private set;}
         public IEventStore EventStore { get; private set; }
@@ -15,7 +15,7 @@ namespace Merp.Infrastructure.Impl
         private static IDictionary<Type, Type> registeredSagas = new Dictionary<Type, Type>();
         private static IList<Type> registeredHandlers = new List<Type>();
 
-        public InMemoryBus(IUnityContainer container, IEventStore eventStore)
+        public Bus(IUnityContainer container, IEventStore eventStore)
         {
             if(container==null)
             {

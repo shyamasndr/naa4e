@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Merp.Infrastructure.Impl
 {
-    public class InMemoryEventStore : IEventStore
+    public class EventStore : IEventStore
     {
         private static IList<DomainEvent> occurredEvents = new List<DomainEvent>();
 

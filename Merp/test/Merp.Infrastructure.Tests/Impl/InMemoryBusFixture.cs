@@ -17,7 +17,7 @@ namespace Merp.Infrastructure.Tests.Impl
             public void Ctor_should_throw_ArgumentNullException_on_null_container_and_value_of_parameter_should_be_container()
             {
                 var eventStoreMock = new Mock<IEventStore>().Object;
-                Executing.This(() => new InMemoryBus(null, eventStoreMock))
+                Executing.This(() => new Bus(null, eventStoreMock))
                                .Should()
                                .Throw<ArgumentNullException>()
                                .And
@@ -32,7 +32,7 @@ namespace Merp.Infrastructure.Tests.Impl
             public void Ctor_should_throw_ArgumentNullException_on_null_eventStore_and_value_of_parameter_should_be_eventStore()
             {
                 var containerMock = new Mock<IUnityContainer>().Object;
-                Executing.This(() => new InMemoryBus(containerMock, null))
+                Executing.This(() => new Bus(containerMock, null))
                                .Should()
                                .Throw<ArgumentNullException>()
                                .And
@@ -52,7 +52,7 @@ namespace Merp.Infrastructure.Tests.Impl
             {
                 var containerMock = new Mock<IUnityContainer>().Object;
                 var eventStoreMock = new Mock<IEventStore>().Object;
-                IBus bus = new InMemoryBus(containerMock, eventStoreMock);
+                IBus bus = new Bus(containerMock, eventStoreMock);
                 Executing.This(() => bus.RegisterSaga<PretendingSaga>())
                     .Should()
                     .Throw<InvalidOperationException>();   
@@ -63,7 +63,7 @@ namespace Merp.Infrastructure.Tests.Impl
             {
                 var containerMock = new Mock<IUnityContainer>().Object;
                 var eventStoreMock = new Mock<IEventStore>().Object;
-                IBus bus = new InMemoryBus(containerMock, eventStoreMock);
+                IBus bus = new Bus(containerMock, eventStoreMock);
                 Executing.This(() => bus.RegisterSaga<OverloadedSaga>())
                     .Should()
                     .Throw<InvalidOperationException>();
@@ -74,7 +74,7 @@ namespace Merp.Infrastructure.Tests.Impl
             {
                 var containerMock = new Mock<IUnityContainer>().Object;
                 var eventStoreMock = new Mock<IEventStore>().Object;
-                IBus bus = new InMemoryBus(containerMock, eventStoreMock);
+                IBus bus = new Bus(containerMock, eventStoreMock);
                 bus.RegisterSaga<DummySaga>(); 
             }
 
@@ -148,7 +148,7 @@ namespace Merp.Infrastructure.Tests.Impl
                 var command = new InMemoryBusFixture.SendMethod.FakeSaga.StartCommand();
                 var containerMock = new Mock<IUnityContainer>().Object;
                 var eventStoreMock = new Mock<IEventStore>().Object;
-                IBus bus = new InMemoryBus(containerMock, eventStoreMock);
+                IBus bus = new Bus(containerMock, eventStoreMock);
                 bus.RegisterSaga<FakeSaga>();
                 bus.Send(command);
             }
